@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WM0WZB3LWZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WM0WZB3LWZ');
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="basic.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="Images/favicon.png">
+    <title>Spot-A-Fish</title>
+</head>
+<body onload="loadLogData()">
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="container flex">
+            <div class="navbar-icon-spacer"></div>
+            <div class="logo">
+                <h1 class="logo-text large-font">Home</h1>
+            </div>
+            <a href="account.html">
+                <i class="fas fa-user-circle fa-2x"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Showcase -->
+
+    <div class="showcase">
+        <div class="container flex">
+            <img src="logo.png" alt="LOGO">
+            <p>Some funny fish joke hehe</p>
+        </div>
+    </div>
+
+    <!-- Showcase Buttons -->
+
+    <section class="showcase-buttons-container">
+        <div class="container grid">
+            <a class="showcase-button" href="new-log.html">
+                New Log
+            </a>
+            <a class="showcase-button" href="logs.html">
+                My Fish
+            </a>
+            <a class="showcase-button">
+                My Stats
+            </a>
+        </div>
+    </section>
+
+    <div class="spacer"></div>
+
+    <!-- Recent Catches -->
+    <section class="recent-catches">
+        <div class="container grid" id="catchesGrid">
+            <div class="recent-catches-header">
+                <h1>Recent Catches: </h1>
+            </div>
+            <div class="logsSpacer" id="spacer">
+                <p>No Catches Yet!</p>
+            </div>
+            <!--
+            <div class="catch-item">
+                <div class="grid">
+                    <img src="catch1.jpg" alt="Fish" class="recent-catch-img">
+                    
+                    <p class="location"><b>Rush River</b></p>
+                    <div class="flex">
+                        <p>01/04/23</p>
+                        <p>8:30 AM</p>
+                    </div>
+                    <div class="flex">
+                        <p>12" Rainbow</p>
+                        <p>Wooly Bugger</p>
+                    </div>
+                </div>
+            </div>
+            <hr>-->
+            
+        </div>
+    </section>
+
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+
+    
+    
+    <div class="navbar-bottom">
+        <div class="container">
+            <ul class="flex">
+                <li><a href="index.html">
+                    <div class="flex" style="flex-direction: column;">
+                        <i class="fas fa-chart-bar fa-2x"></i>
+                        <p>Stats</p> 
+                    </div>
+                </a></li>
+                <li><a href="new-log.html">
+                    <div class="flex" style="flex-direction: column;">
+                        <i class="fas fa-plus-circle fa-2x"></i>
+                        <p>New Log</p> 
+                    </div>
+                </a></li>
+                <li><a href="logs.html">
+                    <div class="flex" style="flex-direction: column;">
+                        <i class="fas fa-book fa-2x"></i>
+                        <p>Logs</p> 
+                    </div>
+                </a></li>
+            </ul>
+        </div>
+        
+    </div>
+
+</body>
+
+<script>
+
+    function loadLogData() {
+        console.log("loading");
+
+        const logs = JSON.parse(sessionStorage.getItem('logsData'));
+        console.log(logs);
+
+        if(logs.length == 0) {
+            console.log("no logs");
+        } else if(logs.length <= 5) {
+            $("#spacer").remove();
+            for(let i=0; i<logs.length; i++) {
+                var catchItem = $(`<div class="catch-item" id=${logs[i].id}><div class="grid"><img src="${logs[i].downloadURL}" alt="Fish" class="recent-catch-img"><div><p class="location"><b>${logs[i].location}</b></p><div class="flex"><p>${logs[i].length}" ${logs[i].species}</p><p>${logs[i].lure}</p></div><div class="flex"><p>${logs[i].date}</p><p>${logs[i].time}</p></div></div></div></div><hr>`)
+                $("#catchesGrid").append(catchItem);
+            }
+        } else if(logs.length > 5) {
+            console.log("big");
+            for(let i=0; i<5; i++) {
+                var catchItem = $(`<div class="catch-item" id=${logs[i].id}><div class="grid"><img src="${logs[i].downloadURL}" alt="Fish" class="recent-catch-img"><div><p class="location"><b>${logs[i].location}</b></p><div class="flex"><p>${logs[i].length}" ${logs[i].species}</p><p>${logs[i].lure}</p></div><div class="flex"><p>${logs[i].date}</p><p>${logs[i].time}</p></div></div></div></div><hr>`)
+                $("#catchesGrid").append(catchItem);
+            }
+        }
+    }
+
+    
+
+
+
+
+
+
+</script>
+
+
+
+</html>

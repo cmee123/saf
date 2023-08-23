@@ -1,0 +1,62 @@
+.new-log-showcase {
+    height: 110px;
+  }
+  
+  .new-log-showcase .flex {
+    flex-direction: column;
+    margin-top: 25px;
+  }
+
+
+  .login__container {
+    width: 300px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    padding: 20px;
+  }
+  
+  .login__container .input-label {
+    margin-bottom: 5px;
+  }
+  
+  .login__container .ip {
+    height: 30px;
+    margin-bottom: 10px;
+    background-color: white;
+    width: 98%;
+    border: 1px solid #333;
+    text-indent: 5px;
+  }
+
+  .login__container .ip:focus {
+    outline: none;
+  }
+
+  .new-log-form .flex {
+    gap: 10px;
+  }
+
+  .post-title {
+    display: none;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .create-log-button {
+    background: #1a79bc;
+    border: 1px solid;
+    border-radius: 2px;
+    width: 120px;
+    height: 30px;
+    margin-top: 25px;
+    border-color: #135b8f #226596 #083555;
+    color: #fff;
+  }
+  
+  .create-log-button:hover {
+    background: #0e466e;
+    cursor: pointer;
+  }

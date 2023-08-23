@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="basic.css">
+    <link rel="stylesheet" href="fish.css">
+    <link rel="icon" href="Images/favicon.png">
+    <title>Spot-A-Fish</title>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="container flex">
+            <a href="index.html">
+                <i class="fas fa-arrow-left fa-2x"></i>
+            </a>
+            <div class="logo">
+                <h1 class="logo-text large-font">My Account</h1>
+            </div>
+            <div class="navbar-icon-spacer"></div>
+        </div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="flex">
+        <a href="login.html" class="text-button" onclick="signOut()">Sign Out</a>
+    </div>
+    
+    
+
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+
+    
+    
+    <div class="navbar-bottom">
+        <div class="container">
+            <ul class="flex">
+                <li><a href="index.html">
+                    <div class="flex" style="flex-direction: column;">
+                        <i class="fas fa-chart-bar fa-2x"></i>
+                        <p>Stats</p> 
+                    </div>
+                </a></li>
+                <li><a href="new-log.html">
+                    <div class="flex" style="flex-direction: column;">
+                        <i class="fas fa-plus-circle fa-2x"></i>
+                        <p>New Log</p> 
+                    </div>
+                </a></li>
+                <li><a href="logs.html">
+                    <div class="flex" style="flex-direction: column;">
+                        <i class="fas fa-book fa-2x"></i>
+                        <p>Logs</p> 
+                    </div>
+                </a></li>
+            </ul>
+        </div>
+        
+    </div>
+
+</body>
+
+<script>
+
+    function signOut() {
+        localStorage.setItem("userUID", null);
+    }
+    
+</script>
+
+</html>

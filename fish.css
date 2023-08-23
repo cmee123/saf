@@ -1,0 +1,48 @@
+.catch-page-content .flex {
+    flex-direction: column;
+}
+
+.text-button {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.catch-page-content .details-grid {
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 7px;
+    border: 1.5px solid lightgray;
+    margin-top: 10px;
+}
+
+.catch-page-content .details-grid .flex {
+    gap: 7px;
+}
+
+.catch-page-content img {
+    width: 90%;
+}
+
+.fish-title {
+    font-size: 25px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.location {
+    font-size: 22px;
+    margin-top: 5px;
+}
+
+.size {
+    margin-top: 10px;
+}
+
+.notes {
+    margin-top: 15px;
+}
+
+.catch-page-content hr {
+    width: 100%;
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WM0WZB3LWZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WM0WZB3LWZ');
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="basic.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="icon" href="Images/favicon.png">
+    <title>SpotAFish</title>
+</head>
+<body>
+
+    <div class='login'>
+        <img src="logo.png" alt="logo image" class="login__logo">
+
+        <div class='login__container'>
+            <h1>Sign In</h1>
+            <form>
+                <h5>Email</h5>
+                <input type="text" id="email" />
+
+                <h5>Password</h5>
+                <input type="password" id="password" />
+            </form>
+            <button class='login__signInButton' id="signIn">Sign In</button>
+            <div class="flex">
+                <a href="create-account.html" class="text-button">Create an Account</a>
+            </div>
+        </div>
+        
+    </div>
+
+</body>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-analytics.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+    import { getFirestore, doc, collection, getDocs, orderBy } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDzC6UdJlhZqg5bcyQ5YtnxpllW3waOt7c",
+      authDomain: "spot-a-fish.firebaseapp.com",
+      projectId: "spot-a-fish",
+      storageBucket: "spot-a-fish.appspot.com",
+      messagingSenderId: "980242354812",
+      appId: "1:980242354812:web:c24df9bee44c83416feff9",
+      measurementId: "G-712DVLBM0T"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    signIn.addEventListener('click', (e) => {
+
+        var em = $("#email").val();
+        var pas = $("#password").val();
+
+        signInWithEmailAndPassword(auth, em, pas)
+        .then((userCredential) => {
+            // Signed in 
+            sessionStorage.setItem("userUID", auth.currentUser.uid);
+            getDocs(collection(db, "fishLogs", sessionStorage.getItem("userUID"), "userLogs"), orderBy("creation", "asc"))
+            .then(docSnap => {
+                let posts = docSnap.docs.map(doc => {
+                    const data = doc.data();
+                    const id = doc.id;
+                    return {id, ...data}
+                })
+                sessionStorage.setItem("logsData", JSON.stringify(posts));
+                console.log("rahh", JSON.parse(sessionStorage.getItem('logsData')));
+                window.location.href = 'index.html';
+            })
+            
+
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorMessage);
+        });
+    });
+
+    
+
+</script>
+
+
+
+</html>

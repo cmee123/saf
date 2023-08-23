@@ -1,0 +1,84 @@
+  /* Showcase */
+
+  .showcase {
+    height: 250px;
+  }
+
+  .showcase img {
+    width: 100%;
+  }
+
+  .showcase .flex {
+    flex-direction: column;
+  }
+
+  .showcase p {
+    font-size: 25px;
+  }
+
+  /* Showcase Buttons */
+
+  .showcase-buttons-container {
+    background-image: url("/Images/river-current.jpg");
+    object-fit: cover;
+  }
+
+  .showcase-buttons-container .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    padding: 50px 20px;
+  }
+
+  .showcase-buttons-container .showcase-button {
+    color: #fff;
+    background-color: #7b98ad;
+    display: inline-block;
+    padding: 40px 12.5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 5px;
+  }
+
+  /* Recent Catches */
+
+  .recent-catches {
+    height: 400px;
+  }
+
+  .recent-catches .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 30px, auto;
+    gap: 6px;
+  }
+
+  .recent-catches .recent-catches-header {
+    background-color: aliceblue;
+  }
+
+  .recent-catches .catch-item {
+    height: 170px;
+  }
+
+  .recent-catches .catch-item img {
+    max-width: 100%;
+    max-height: 90%;
+  }
+
+  .recent-catches .catch-item .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .logsSpacer {
+    height: 370px;
+  }
+
+  .logsSpacer p {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  

@@ -1,0 +1,39 @@
+/* Catches page */
+
+.navbar {
+    position: fixed;
+    width: 100%;
+  }
+
+  .logs-showcase {
+    height: 110px;
+  }
+  
+  .logs-showcase .flex {
+    flex-direction: column;
+    margin-top: 25px;
+  }
+  
+  .my-catches {
+    height: auto;
+  }
+  
+  .my-catches .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 15px;
+  }
+
+  .catch-item {
+    height: 150px;
+  }
+
+  .catch-item img {
+    max-width: 100%;
+    max-height: 90%;
+  }
+
+  .catch-item .grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-rows: 1fr;
+  }

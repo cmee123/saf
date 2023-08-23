@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WM0WZB3LWZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WM0WZB3LWZ');
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="basic.css">
+    <link rel="stylesheet" href="fish.css">
+    <link rel="icon" href="Images/favicon.png">
+    <title>Spot-A-Fish</title>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="container flex">
+            <a href="logs.html">
+                <i class="fas fa-arrow-left fa-2x"></i>
+            </a>
+            <div class="logo">
+                <h1 class="logo-text large-font">My Catch</h1>
+            </div>
+            <div class="navbar-icon-spacer"></div>
+        </div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <section class="catch-page-content">
+        <div class="container">
+            <div class="flex">
+                <img alt="Fish Picture" id="fishImg">
+                <p class="fish-title" id="title"><b>Rainbow Trout</b></p>
+
+                <hr>
+                
+                <p class="location" id="loc">Rush River</p>
+
+                <p class="city-state" id="place">Saint Paul, MN</p>
+
+                <p class="size" id="size">16 inches, 1.3 lbs</p>
+
+                <div class="flex details-grid">
+                    <div class="flex" id="datetime">
+                        <!--
+<p><b style="margin-right: 4px;">Time: </b> 11:58am</p>
+                        <p><b style="margin-right: 4px;">Date: </b> 01/02/23</p>
+                        
+
+                        -->
+                        
+                    </div>
+                    <div class="flex" id="typelure">
+                        <!--
+
+                             <p><b style="margin-right: 4px;">Type: </b> Fly Fishing</p>
+                        <p><b style="margin-right: 4px;">Lure: </b> Wooly Bugger</p>
+                    
+                        -->
+                       </div>
+                </div>
+
+                <p class="notes" id="notes">Caught behind campground on VC bridge side.</p>
+            </div>
+
+            <div class="flex">
+                <a href="logs.html" class="text-button">View All Catches</a>
+            </div>
+            
+        </div>
+    </section>
+    
+
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+
+    
+    
+    <div class="navbar-bottom">
+        <div class="container">
+            <ul class="flex">
+                <li><a href="index.html">
+                    <div class="flex" style="flex-direction: column;">
+                        <i class="fas fa-chart-bar fa-2x"></i>
+                        <p>Stats</p> 
+                    </div>
+                </a></li>
+                <li><a href="new-log.css">
+                    <div class="flex" style="flex-direction: column;">
+                        <i class="fas fa-plus-circle fa-2x"></i>
+                        <p>New Log</p> 
+                    </div>
+                </a></li>
+                <li><a href="logs.html">
+                    <div class="flex" style="flex-direction: column;">
+                        <i class="fas fa-book fa-2x"></i>
+                        <p>Logs</p> 
+                    </div>
+                </a></li>
+            </ul>
+        </div>
+        
+    </div>
+
+</body>
+
+<script>
+
+    console.log(sessionStorage.getItem("currentLog"))
+    const logs = JSON.parse(sessionStorage.getItem('logsData'));
+
+    for(let i=0; i<logs.length; i++) {
+        if(logs[i].id === sessionStorage.getItem("currentLog")) {
+            $("#fishImg").attr("src", logs[i].downloadURL);
+            $("#title").text(logs[i].species);
+            $("#loc").text(logs[i].location);
+            $("#place").text(logs[i].city + ", " + logs[i].state);
+            if(logs[i].weight != "") {
+                $("#size").text(logs[i].length + " inches, " + logs[i].weight + " lbs");
+            } else {
+                $("#size").text(logs[i].length + " inches");
+            }
+            const t = $(`<p><b style="margin-right: 4px;">Time: </b> ${logs[i].time}</p>`)
+            const d = $(`<p><b style="margin-right: 4px;">Date: </b> ${logs[i].date}</p>`)
+            $("#datetime").append(t);
+            $("#datetime").append(d);
+
+            const ty = $(`<p><b style="margin-right: 4px;">Type: </b> ${logs[i].type}</p>`)
+            const l = $(`<p><b style="margin-right: 4px;">Lure: </b> ${logs[i].lure}</p>`)
+            $("#typelure").append(ty);
+            $("#typelure").append(l);
+
+            $("#notes").text(`${logs[i].notes}`);
+
+        }
+    }
+
+
+
+
+</script>
+
+
+
+
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WM0WZB3LWZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WM0WZB3LWZ');
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="basic.css">
+    <link rel="stylesheet" href="new-log.css">
+    <link rel="icon" href="Images/favicon.png">
+    <title>Spot-A-Fish</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="container flex">
+            <a href="index.html">
+                <i class="fas fa-arrow-left fa-2x"></i>
+            </a>
+            <div class="logo">
+                <h1 class="logo-text large-font">Spot-A-Fish</h1>
+            </div>
+            <div class="navbar-icon-spacer"></div>
+            
+        </div>
+    </div>
+
+    <!-- New Log Showcase -->
+
+    <section class="new-log-showcase">
+        <div class="container">
+            <div class="flex new-log-showcase-text">
+                <h1>New Log</h1>
+                <p>Input the details of a fish you caught!</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="spacer"></div>
+
+    <section class="new-log-form flex">
+        <div class='login__container'>
+            <form>
+                <h5 class="input-label">Species</h5>
+                <input type="text" id="species" class="ip"/>
+                <div class="flex">
+                    <div>
+                        <h5 class="input-label">Length</h5>
+                        <input type="text" id="length" class="ip" />
+                    </div>
+                    <div>
+                        <h5 class="input-label">Weight</h5>
+                        <input type="text" id="weight" class="ip" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <section class="new-log-form flex">
+        <div class='login__container' style="margin-top: 15px;">
+            <form>
+                
+                <div class="flex">
+                    <div>
+                        <h5 class="input-label">City</h5>
+                        <input type="text" id="city" class="ip" />
+                    </div>
+                    <div>
+                        <h5 class="input-label">State</h5>
+                        <input type="text" id="state" class="ip" />
+                    </div>
+                </div>
+                <h5 class="input-label">Location</h5>
+                <input type="text" id="location" class="ip"/>
+                
+                <div class="flex">
+                    <div>
+                        <h5 class="input-label">Time</h5>
+                        <input type="text" id="time" class="ip" />
+                    </div>
+                    <div>
+                        <h5 class="input-label">Date</h5>
+                        <input type="text" id="date" class="ip" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <section class="new-log-form flex">
+        <div class='login__container' style="margin-top: 15px;">
+            <form>
+                <h5 class="input-label">Fishing Type</h5>
+                <input type="text" id="fishingType" class="ip"/>
+
+                <h5 class="input-label">Fly/Lure/Bait</h5>
+                <input type="text" id="lure" class="ip"/>
+
+                <h5 class="input-label">Notes</h5>
+                <input type="text" id="notes" class="ip"/>
+                
+            </form>
+        </div>
+    </section>
+    <section class="new-log-form flex">
+        <div class='login__container' style="margin-top: 15px;">
+            <form>
+
+                <div class="flex" style="flex-direction: column;" id="pre-image">
+                    <p><label for="file" style="cursor: pointer;">Click to Uplaod an Image</label></p>
+                    <i class="fas fa-camera fa-2x"></i>
+                </div>
+                <p class="post-title" id="post-title">Uplaoded Image: </p>
+                <p><input type="file" accept="image/*" name="image" id="file" style="display: none;"></p>
+                <div class="flex">
+                    <img id="output" width="200">
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <div class="flex">
+            <button class='create-log-button' id="newLog">Create Log</button>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+
+    
+    
+    <div class="navbar-bottom">
+        <div class="container">
+            <ul class="flex">
+                <li><a href="index.html">
+                    <div class="flex" style="flex-direction: column;">
+                        <i class="fas fa-chart-bar fa-2x"></i>
+                        <p>Stats</p> 
+                    </div>
+                </a></li>
+                <li><a href="new-log.html">
+                    <div class="flex" style="flex-direction: column;">
+                        <i class="fas fa-plus-circle fa-2x"></i>
+                        <p>New Log</p> 
+                    </div>
+                </a></li>
+                <li><a href="logs.html">
+                    <div class="flex" style="flex-direction: column;">
+                        <i class="fas fa-book fa-2x"></i>
+                        <p>Logs</p> 
+                    </div>
+                </a></li>
+            </ul>
+        </div>
+        
+    </div>
+
+</body>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-analytics.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+    import { getStorage, ref, uploadString, getDownloadURL, uploadBytes } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-storage.js";
+    import { getFirestore, setDoc, doc, addDoc, collection, serverTimestamp, getDocs, orderBy } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDzC6UdJlhZqg5bcyQ5YtnxpllW3waOt7c",
+      authDomain: "spot-a-fish.firebaseapp.com",
+      projectId: "spot-a-fish",
+      storageBucket: "spot-a-fish.appspot.com",
+      messagingSenderId: "980242354812",
+      appId: "1:980242354812:web:c24df9bee44c83416feff9",
+      measurementId: "G-712DVLBM0T"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const storage = getStorage(app);
+    const analytics = getAnalytics(app);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    var imgSrc = "";
+
+    newLog.addEventListener('click', (e) => {
+
+        $("#newLog").text("Loading...");
+        $("#newLog").prop("disabled", true);
+        $("#newLog").css("background", "#ababab");
+
+
+        var sp = $("#species").val();
+        var le = $("#length").val();
+        var we = $("#weight").val();
+        var ci = $("#city").val();
+        var st = $("#state").val();
+        var lo = $("#location").val();
+        var ti = $("#time").val();
+        var da = $("#date").val();
+        var ty = $("#fishingType").val();
+        var lu = $("#lure").val();
+        var no = $("#notes").val();
+
+        const childPath = `pictures/${auth.currentUser.uid}/${Math.random().toString(36)}`;
+        const storageRef = ref(storage, childPath);
+
+        const savePostData = (url) => {
+            addDoc(collection(db, "fishLogs", auth.currentUser.uid, "userLogs"), {
+                downloadURL: url,
+                species: sp,
+                length: le,
+                weight: we,
+                city: ci,
+                state: st,
+                location: lo,
+                time: ti,
+                date: da,
+                type: ty,
+                lure: lu,
+                notes: no,
+                creation: serverTimestamp()
+            })
+        }
+
+        uploadBytes(storageRef, imgSrc).then((snapshot) => {
+            getDownloadURL(storageRef).then((url) => {  
+                savePostData(url);
+                getDocs(collection(db, "fishLogs", sessionStorage.getItem("userUID"), "userLogs"), orderBy("creation", "asc"))
+                .then(docSnap => {
+                    let posts = docSnap.docs.map(doc => {
+                        const data = doc.data();
+                        const id = doc.id;
+                        return {id, ...data}
+                    })
+                    sessionStorage.setItem("logsData", JSON.stringify(posts));
+                    console.log("rahh", JSON.parse(sessionStorage.getItem('logsData')));
+                    window.location.href = 'index.html';
+                })
+            });
+        });
+
+       
+
+    });
+
+    file.addEventListener('change', (e) => {
+        console.log(sessionStorage.getItem('userUID'));
+        $("#pre-image").css("display", "none");
+        $("#post-title").css("display", "block");
+        var image = document.getElementById('output');
+        imgSrc = e.target.files[0];
+        image.src = URL.createObjectURL(e.target.files[0]);
+    });
+
+</script>
+
+
+
+</html>
